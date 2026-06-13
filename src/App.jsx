@@ -1,10 +1,7 @@
 export default function App() {
-
   return (
     <>
-        <div className='main-div'>
-          Hello
-        </div>
+      <div className="main-div">Hello</div>
     </>
-  )
+  );
 }
