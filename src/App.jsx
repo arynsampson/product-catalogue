@@ -1,7 +1,11 @@
+import Header from './components/Header';
+import Dashboard from './pages/Dashboard';
+
 export default function App() {
   return (
-    <>
-      <div className="main-div">Hello</div>
-    </>
+    <main className="container">
+      <Header />
+      <Dashboard />
+    </main>
   );
 }

@@ -1,1 +1,24 @@
 @import 'tailwindcss';
+
+@theme {
+  --primary-color: 525252;
+  --main-bg-color: E2E2E2;
+  --favourite: E6D0DE;
+  --table-header-cell: A8A8A8;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+header {
+  @apply bg-red-500 py-4 px-7 flex justify-between items-center;
+
+  & h1 {
+    @apply text-4xl text-[--primary-color];
+  }
+}
+
+.search-bar {
+  @apply w-full outline-0 p-5 my-4 border-[2px] border-black border-solid rounded-md;
+}
