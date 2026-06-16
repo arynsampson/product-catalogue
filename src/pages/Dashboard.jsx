@@ -3,17 +3,18 @@ import Header from '../components/Header';
 import ProductGrid from '../components/products/ProductGrid';
 import SearchBar from '../components/SearchBar';
 
-export default function Dashboard({ products, searchInput, setSearchInput }) {
-  const brands = products?.map((product) => {
-    if (product.brand !== undefined) return product;
-  });
-
-  console.log(brands);
-
+export default function Dashboard({
+  products,
+  searchInput,
+  filter,
+  categories,
+  setSearchInput,
+  setFilter,
+}) {
   return (
     <>
       <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
-      <FilterDropdown brands={brands} />
+      <FilterDropdown categories={categories} filter={filter} setFilter={setFilter} />
       {/* <FilterDropdown /> */}
       <ProductGrid products={products} />
     </>

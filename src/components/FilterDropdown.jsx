@@ -1,14 +1,17 @@
-export default function FilterDropdown({ brands }) {
+export default function FilterDropdown({ categories, filter, setFilter }) {
   return (
     <>
-      <select name="cars" id="cars" required>
-        <option defaultValue="" disabled selected>
-          Category filter
-        </option>
-        {/* <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option> */}
+      <select
+        name="categories"
+        id="categories"
+        value={filter}
+        onChange={(e) => setFilter(e.target.value)}
+      >
+        {categories.map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
       </select>
     </>
   );

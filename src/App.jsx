@@ -25,7 +25,20 @@ export default function App() {
   }, []);
 
   const visibleProducts = products.filter((product) => {
-    if (product.title.toLowerCase().trim().includes(searchInput)) return product;
+    // Show all products
+    if (!searchInput && filter === 'all') return product;
+
+    // Search for Product while 'all' filter is active
+    if (searchInput && filter === 'all')
+      if (product.title.toLowerCase().trim().includes(searchInput)) return product;
+
+    // Filter Products by category if there is no search input
+    if (!searchInput && filter !== 'all') if (product.category === filter) return product;
+
+    // Search Products that have been filtered by category
+    if (searchInput && filter !== 'all')
+      if (product.category === filter && product.title.toLowerCase().trim().includes(searchInput))
+        return product;
   });
 
   return (
@@ -34,7 +47,10 @@ export default function App() {
       <Dashboard
         products={visibleProducts}
         searchInput={searchInput}
+        filter={filter}
+        categories={['all', ...new Set(products.map((product) => product.category))]}
         setSearchInput={setSearchInput}
+        setFilter={setFilter}
       />
     </main>
   );
