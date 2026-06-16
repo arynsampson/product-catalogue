@@ -8,7 +8,7 @@
 }
 
 .container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[E2E2E2];
 }
 
 header {
@@ -20,5 +20,13 @@ header {
 }
 
 .search-bar {
-  @apply w-full outline-0 p-5 my-4 border-[2px] border-black border-solid rounded-md;
+  @apply w-full outline-0 p-5 my-4 border-2 border-black border-solid rounded-md;
+}
+
+.product-grid {
+  @apply grid grid-cols-4 gap-3;
+
+  & .product-grid-item {
+    @apply bg-[--main-bg-color];
+  }
 }
