@@ -8,6 +8,8 @@ export default function App() {
   const [error, setError] = useState(null);
   const [searchInput, setSearchInput] = useState('');
   const [filter, setFilter] = useState('all');
+  const [favouriteIds, setFavouriteIds] = useState([]);
+  const [toggleViews, setToggleViews] = useState(true);
 
   useEffect(() => {
     (async function fetchData() {
@@ -41,16 +43,32 @@ export default function App() {
         return product;
   });
 
+  function toggleFavourite(product) {
+    if (favouriteIds.includes(product.id)) {
+      setFavouriteIds(favouriteIds.filter((id) => id !== product.id));
+    } else {
+      setFavouriteIds([...favouriteIds, product.id]);
+    }
+  }
+
+  const favoriteProducts = products
+    .filter((product) => favouriteIds.includes(product.id))
+    .map((product) => {
+      return { ...product };
+    });
+
   return (
     <main className="container">
-      <Header />
+      <Header setToggleViews={() => setToggleViews(!toggleViews)} />
       <Dashboard
-        products={visibleProducts}
+        products={toggleViews ? visibleProducts : favoriteProducts}
+        favouriteIds={favouriteIds}
         searchInput={searchInput}
         filter={filter}
         categories={['all', ...new Set(products.map((product) => product.category))]}
         setSearchInput={setSearchInput}
         setFilter={setFilter}
+        toggleFavourite={toggleFavourite}
       />
     </main>
   );
