@@ -1,9 +1,8 @@
-export default function Header({ setToggleViews }) {
+export default function Header() {
   return (
     <>
       <header>
-        <h1 onClick={setToggleViews}>ProductCatalogue</h1>
-        <button onClick={setToggleViews}>Favourites</button>
+        <h1>ProductCatalogue</h1>
       </header>
     </>
   );

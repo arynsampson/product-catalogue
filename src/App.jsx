@@ -9,12 +9,14 @@ export default function App() {
   const [searchInput, setSearchInput] = useState('');
   const [filter, setFilter] = useState('all');
   const [favouriteIds, setFavouriteIds] = useState([]);
-  const [toggleViews, setToggleViews] = useState(true);
+  const [showFavorites, setShowFavorites] = useState(false);
 
   useEffect(() => {
     (async function fetchData() {
+      setLoading(true);
       try {
         const response = await fetch('https://dummyjson.com/products');
+        if (!response.ok) throw new Error('Failed to fetch data.');
         const result = await response.json();
         setProducts(result.products);
       } catch (error) {
@@ -25,6 +27,16 @@ export default function App() {
       }
     })();
   }, []);
+
+  if (loading) return <div>Loading items...</div>;
+
+  if (error) {
+    return (
+      <div>
+        <p>{error}</p>
+      </div>
+    );
+  }
 
   const visibleProducts = products.filter((product) => {
     // Show all products
@@ -57,11 +69,18 @@ export default function App() {
       return { ...product };
     });
 
+  const productsSummary = {
+    products: products.length,
+    filteredProducts: visibleProducts.length,
+    favouriteProducts: favouriteIds.length,
+  };
+
   return (
     <main className="container">
-      <Header setToggleViews={() => setToggleViews(!toggleViews)} />
+      <Header />
       <Dashboard
-        products={toggleViews ? visibleProducts : favoriteProducts}
+        products={showFavorites ? favoriteProducts : visibleProducts}
+        productsSummary={productsSummary}
         favouriteIds={favouriteIds}
         searchInput={searchInput}
         filter={filter}
@@ -69,6 +88,7 @@ export default function App() {
         setSearchInput={setSearchInput}
         setFilter={setFilter}
         toggleFavourite={toggleFavourite}
+        setShowFavorites={() => setShowFavorites(!showFavorites)}
       />
     </main>
   );
