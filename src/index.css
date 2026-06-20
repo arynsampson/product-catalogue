@@ -17,7 +17,7 @@
 }
 
 .container {
-  @apply max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 bg-[E2E2E2];
+  @apply max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 bg-[#E2E2E2];
 }
 
 header {
@@ -51,5 +51,38 @@ header {
 
   .number-of-reviews {
     @apply text-[14px] text-[#64748b];
+  }
+}
+
+.products-summary-container {
+  @apply flex my-6 gap-x-5 justify-between;
+
+  .summary-item {
+    @apply flex bg-white gap-x-3 rounded-2xl p-6 items-center basis-1/4;
+
+    .summary-img-container {
+      @apply basis-1/4 self-start;
+
+      img {
+        @apply w-12 h-11;
+      }
+    }
+
+    .summary-information {
+      @apply flex flex-col gap-y-3;
+    }
+
+    .summary-title {
+      @apply font-semibold;
+    }
+
+    .summary-title,
+    .summary-description {
+      @apply text-[14px] text-[#64748b];
+    }
+
+    .summary-amount {
+      @apply text-2xl text-[#0f172a] font-semibold;
+    }
   }
 }

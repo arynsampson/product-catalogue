@@ -1,7 +1,7 @@
 import FilterDropdown from '../components/FilterDropdown';
 import ProductGrid from '../components/products/ProductGrid';
 import SearchBar from '../components/SearchBar';
-import Summary from '../components/Summary';
+import ProductsSummary from '../components/summary/ProductsSummary';
 
 export default function Dashboard({
   products,
@@ -18,10 +18,10 @@ export default function Dashboard({
   return (
     <>
       <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
-      <Summary productsSummary={productsSummary} />
-      <FilterDropdown categories={categories} filter={filter} setFilter={setFilter} />
+      <ProductsSummary productsSummary={productsSummary} />
+      {/* <FilterDropdown categories={categories} filter={filter} setFilter={setFilter} /> */}
       {/* <FilterDropdown /> */}
-      <button onClick={setShowFavorites}>Show Favourites</button>
+      {/* <button onClick={setShowFavorites}>Show Favourites</button> */}
       <ProductGrid
         products={products}
         favouriteIds={favouriteIds}
