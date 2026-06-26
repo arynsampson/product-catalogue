@@ -1,8 +1,17 @@
-export default function Header() {
+import { Store } from 'lucide-react';
+
+export default function Header({ favouritesLength }) {
   return (
     <>
       <header>
-        <h1>ProductCatalogue</h1>
+        <div>
+          <Store color="#2563eb" />
+          <h1>Product Catalogue</h1>
+        </div>
+        <div>
+          <p>Favourites</p>
+          <span>{favouritesLength}</span>
+        </div>
       </header>
     </>
   );
