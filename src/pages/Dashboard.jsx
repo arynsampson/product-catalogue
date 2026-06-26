@@ -17,16 +17,18 @@ export default function Dashboard({
 }) {
   return (
     <>
-      <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
-      <ProductsSummary productsSummary={productsSummary} />
-      {/* <FilterDropdown categories={categories} filter={filter} setFilter={setFilter} /> */}
-      {/* <FilterDropdown /> */}
-      {/* <button onClick={setShowFavorites}>Show Favourites</button> */}
-      <ProductGrid
-        products={products}
-        favouriteIds={favouriteIds}
-        toggleFavourite={toggleFavourite}
-      />
+      <div className="dashboard-content">
+        <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
+        <ProductsSummary productsSummary={productsSummary} />
+        {/* <FilterDropdown categories={categories} filter={filter} setFilter={setFilter} /> */}
+        {/* <FilterDropdown /> */}
+        {/* <button onClick={setShowFavorites}>Show Favourites</button> */}
+        <ProductGrid
+          products={products}
+          favouriteIds={favouriteIds}
+          toggleFavourite={toggleFavourite}
+        />
+      </div>
     </>
   );
 }
