@@ -76,7 +76,7 @@ export default function App() {
 
   const productsSummary = {
     products: products.length,
-    filteredProducts: visibleProducts.length,
+    filteredProducts: showFavorites ? favouriteIds.length : visibleProducts.length,
     favouriteProducts: favouriteIds.length,
   };
 
