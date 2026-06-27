@@ -100,11 +100,16 @@ header {
 
     .product-image-container {
       text-align: center;
+      display: flex;
 
       .product-img {
         display: block;
         margin: 0 auto;
         width: 60%;
+      }
+
+      .favorite-icon:hover {
+        cursor: pointer;
       }
     }
 
@@ -114,13 +119,24 @@ header {
     .product-title {
       @apply text-[18px] text-[#0f172a] font-semibold;
     }
-  }
-  .product-price {
-    @apply text-[#2563eb] text-[14px] font-semibold;
-  }
 
-  .number-of-reviews {
-    @apply text-[14px] text-[#64748b];
+    .product-rating {
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
+      margin-bottom: 10px;
+
+      .stars {
+        display: flex;
+      }
+
+      .number-of-reviews {
+        @apply text-[14px] text-[#64748b];
+      }
+    }
+    .product-price {
+      @apply text-[#2563eb] text-[14px] font-semibold;
+    }
   }
 }
 
