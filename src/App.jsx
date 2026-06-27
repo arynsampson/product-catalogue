@@ -38,8 +38,8 @@ export default function App() {
     );
   }
 
-  const visibleProducts = products.filter((product) => {
-    // Show all products
+  function searchProducts(product) {
+    // Show all produts
     if (!searchInput.trim().toLowerCase() && filter === 'all') return product;
 
     // Search for Product while 'all' filter is active
@@ -58,7 +58,13 @@ export default function App() {
         product.title.toLowerCase().trim().includes(searchInput.trim().toLowerCase())
       )
         return product;
-  });
+  }
+
+  const visibleProducts = !showFavorites
+    ? products.filter((product) => searchProducts(product))
+    : products
+        .filter((product) => favouriteIds.includes(product.id))
+        .filter((product) => searchProducts(product));
 
   function toggleFavourite(product) {
     if (favouriteIds.includes(product.id)) {
@@ -68,15 +74,9 @@ export default function App() {
     }
   }
 
-  const favoriteProducts = products
-    .filter((product) => favouriteIds.includes(product.id))
-    .map((product) => {
-      return { ...product };
-    });
-
   const productsSummary = {
     products: products.length,
-    filteredProducts: showFavorites ? favouriteIds.length : visibleProducts.length,
+    filteredProducts: visibleProducts.length,
     favouriteProducts: favouriteIds.length,
   };
 
@@ -90,7 +90,7 @@ export default function App() {
         <h2>Browse products</h2>
         <p>Discover and shop the best products from our catalogue.</p>
         <Dashboard
-          products={showFavorites ? favoriteProducts : visibleProducts}
+          products={visibleProducts}
           productsSummary={productsSummary}
           favouriteIds={favouriteIds}
           searchInput={searchInput}
