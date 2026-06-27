@@ -7,7 +7,7 @@ export default function SummaryItem({ summaryData }) {
     ) : summaryData.icon === 'funnel' ? (
       <Funnel color="#10B981" />
     ) : summaryData.icon === 'heart' ? (
-      <Heart color="#EF4444" />
+      <Heart color="#EF4444" fill="#EF4444" />
     ) : (
       ''
     );
