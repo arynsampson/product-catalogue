@@ -25,13 +25,13 @@
   display: flex;
   flex-direction: column;
   min-width: 100%;
+  min-height: 100vh;
 
   .main-content {
     padding-top: 20px;
     padding-left: 100px;
     padding-right: 100px;
     padding-bottom: 50px;
-    background-color: #ef4444;
 
     h2 {
       font-size: 30px;
