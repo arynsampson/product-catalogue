@@ -61,10 +61,15 @@ header {
   }
 
   div:last-of-type {
-    p {
+    button {
       color: #0f172a;
       font-weight: bold;
       font-size: 14px;
+    }
+
+    button:hover {
+      cursor: pointer;
+      color: #64748b;
     }
 
     span {

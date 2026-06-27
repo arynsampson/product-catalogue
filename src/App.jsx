@@ -82,7 +82,10 @@ export default function App() {
 
   return (
     <main className="container">
-      <Header favouritesLength={favouriteIds.length} />
+      <Header
+        favouritesLength={favouriteIds.length}
+        setShowFavorites={() => setShowFavorites(!showFavorites)}
+      />
       <div className="main-content">
         <h2>Browse products</h2>
         <p>Discover and shop the best products from our catalogue.</p>
@@ -96,7 +99,6 @@ export default function App() {
           setSearchInput={setSearchInput}
           setFilter={setFilter}
           toggleFavourite={toggleFavourite}
-          setShowFavorites={() => setShowFavorites(!showFavorites)}
         />
       </div>
     </main>

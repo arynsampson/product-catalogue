@@ -1,6 +1,6 @@
 import { Store } from 'lucide-react';
 
-export default function Header({ favouritesLength }) {
+export default function Header({ favouritesLength, setShowFavorites }) {
   return (
     <>
       <header>
@@ -9,7 +9,7 @@ export default function Header({ favouritesLength }) {
           <h1>Product Catalogue</h1>
         </div>
         <div>
-          <p>Favourites</p>
+          <button onClick={() => setShowFavorites()}>Favourites</button>
           <span>{favouritesLength}</span>
         </div>
       </header>

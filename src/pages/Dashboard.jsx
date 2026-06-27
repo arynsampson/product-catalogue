@@ -14,7 +14,6 @@ export default function Dashboard({
   toggleFavourite,
   setSearchInput,
   setFilter,
-  setShowFavorites,
 }) {
   const categoryItems = categories.map((category) => (
     <Category key={category} category={category} filter={filter} setFilter={setFilter}>
