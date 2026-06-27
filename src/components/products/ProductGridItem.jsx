@@ -28,7 +28,7 @@ export default function ProductGridItem({ product, isFavourite, toggleFavourite 
       <div className="product-information">
         <p className="product-category">{product.category}</p>
         <p className="product-title">{product.title}</p>
-        <p className="product-rating">
+        <div className="product-rating">
           <div className="stars">
             {Array.from({ length: fullStars }, () => (
               <Star fill="yellow" strokeWidth={0} size="16px" />
@@ -36,7 +36,7 @@ export default function ProductGridItem({ product, isFavourite, toggleFavourite 
             {halfStar ? <StarHalf fill="yellow" strokeWidth={0} size="16px" /> : ''}
           </div>
           <span className="number-of-reviews">({product.reviews.length})</span>
-        </p>
+        </div>
         <p className="product-price">R{product.price}</p>
       </div>
     </div>
