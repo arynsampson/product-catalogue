@@ -40,18 +40,23 @@ export default function App() {
 
   const visibleProducts = products.filter((product) => {
     // Show all products
-    if (!searchInput && filter === 'all') return product;
+    if (!searchInput.trim().toLowerCase() && filter === 'all') return product;
 
     // Search for Product while 'all' filter is active
-    if (searchInput && filter === 'all')
-      if (product.title.toLowerCase().trim().includes(searchInput)) return product;
+    if (searchInput.trim().toLowerCase() && filter === 'all')
+      if (product.title.toLowerCase().trim().includes(searchInput.trim().toLowerCase()))
+        return product;
 
     // Filter Products by category if there is no search input
-    if (!searchInput && filter !== 'all') if (product.category === filter) return product;
+    if (!searchInput.trim().toLowerCase() && filter !== 'all')
+      if (product.category === filter) return product;
 
     // Search Products that have been filtered by category
-    if (searchInput && filter !== 'all')
-      if (product.category === filter && product.title.toLowerCase().trim().includes(searchInput))
+    if (searchInput.trim().toLowerCase() && filter !== 'all')
+      if (
+        product.category === filter &&
+        product.title.toLowerCase().trim().includes(searchInput.trim().toLowerCase())
+      )
         return product;
   });
 
@@ -77,19 +82,23 @@ export default function App() {
 
   return (
     <main className="container">
-      <Header />
-      <Dashboard
-        products={showFavorites ? favoriteProducts : visibleProducts}
-        productsSummary={productsSummary}
-        favouriteIds={favouriteIds}
-        searchInput={searchInput}
-        filter={filter}
-        categories={['all', ...new Set(products.map((product) => product.category))]}
-        setSearchInput={setSearchInput}
-        setFilter={setFilter}
-        toggleFavourite={toggleFavourite}
-        setShowFavorites={() => setShowFavorites(!showFavorites)}
-      />
+      <Header favouritesLength={favouriteIds.length} />
+      <div className="main-content">
+        <h2>Browse products</h2>
+        <p>Discover and shop the best products from our catalogue.</p>
+        <Dashboard
+          products={showFavorites ? favoriteProducts : visibleProducts}
+          productsSummary={productsSummary}
+          favouriteIds={favouriteIds}
+          searchInput={searchInput}
+          filter={filter}
+          categories={['all', ...new Set(products.map((product) => product.category))]}
+          setSearchInput={setSearchInput}
+          setFilter={setFilter}
+          toggleFavourite={toggleFavourite}
+          setShowFavorites={() => setShowFavorites(!showFavorites)}
+        />
+      </div>
     </main>
   );
 }

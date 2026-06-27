@@ -1,6 +1,7 @@
 import FilterDropdown from '../components/FilterDropdown';
 import ProductGrid from '../components/products/ProductGrid';
 import SearchBar from '../components/SearchBar';
+import Category from '../components/Category';
 import ProductsSummary from '../components/summary/ProductsSummary';
 
 export default function Dashboard({
@@ -15,14 +16,19 @@ export default function Dashboard({
   setFilter,
   setShowFavorites,
 }) {
+  const categoryItems = categories.map((category) => (
+    <Category key={category} category={category} filter={filter} setFilter={setFilter}>
+      {category}
+    </Category>
+  ));
+
   return (
     <>
       <div className="dashboard-content">
         <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
+        <div className="categories">{categoryItems}</div>
         <ProductsSummary productsSummary={productsSummary} />
-        {/* <FilterDropdown categories={categories} filter={filter} setFilter={setFilter} /> */}
-        {/* <FilterDropdown /> */}
-        {/* <button onClick={setShowFavorites}>Show Favourites</button> */}
+        <p className="show-products-total">Showing {products.length} products</p>
         <ProductGrid
           products={products}
           favouriteIds={favouriteIds}
