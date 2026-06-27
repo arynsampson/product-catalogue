@@ -7,18 +7,23 @@ import ProductsSummary from '../components/summary/ProductsSummary';
 export default function Dashboard({
   products,
   productsSummary,
+  favouriteIds,
   searchInput,
   filter,
   categories,
-  favouriteIds,
   toggleFavourite,
+  showFavorites,
   setSearchInput,
   setFilter,
 }) {
   const categoryItems = categories.map((category) => (
-    <Category key={category} category={category} filter={filter} setFilter={setFilter}>
-      {category}
-    </Category>
+    <Category
+      key={category}
+      category={category}
+      filter={filter}
+      setFilter={setFilter}
+      showFavorites={showFavorites}
+    />
   ));
 
   const numProductsDisplayCopy =

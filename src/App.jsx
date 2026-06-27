@@ -96,9 +96,13 @@ export default function App() {
           searchInput={searchInput}
           filter={filter}
           categories={['all', ...new Set(products.map((product) => product.category))]}
-          setSearchInput={setSearchInput}
-          setFilter={setFilter}
           toggleFavourite={toggleFavourite}
+          showFavorites={showFavorites}
+          setSearchInput={setSearchInput}
+          setFilter={(category) => {
+            setFilter(category);
+            setShowFavorites(false);
+          }}
         />
       </div>
     </main>

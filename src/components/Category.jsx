@@ -1,8 +1,8 @@
-export default function Category({ category, filter, setFilter }) {
+export default function Category({ category, filter, showFavorites, setFilter }) {
   return (
     <>
       <button
-        className={`categoryItem ${category.toLowerCase() === filter ? 'active' : ''}`}
+        className={`categoryItem ${category.toLowerCase() === filter && !showFavorites ? 'active' : ''}`}
         onClick={() => setFilter(category)}
       >
         {category}
