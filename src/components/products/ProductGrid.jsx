@@ -1,7 +1,7 @@
 import ProductGridItem from './ProductGridItem';
 
-export default function ProductGrid({ products, favouriteIds, toggleFavourite }) {
-  if (!products) {
+export default function ProductGrid({ visibleProducts, favouriteIds, toggleFavourite }) {
+  if (!visibleProducts) {
     return (
       <div>
         <h3>No items found</h3>
@@ -12,7 +12,7 @@ export default function ProductGrid({ products, favouriteIds, toggleFavourite })
   return (
     <>
       <div className="product-grid">
-        {products?.map((product) => (
+        {visibleProducts?.map((product) => (
           <ProductGridItem
             key={product.id}
             product={product}

@@ -5,7 +5,7 @@ import Category from '../components/Category';
 import ProductsSummary from '../components/summary/ProductsSummary';
 
 export default function Dashboard({
-  products,
+  visibleProducts,
   productsSummary,
   favouriteIds,
   searchInput,
@@ -27,9 +27,9 @@ export default function Dashboard({
   ));
 
   const numProductsDisplayCopy =
-    products.length === 1
-      ? `Showing ${products.length} product`
-      : `Showing ${products.length} products`;
+    visibleProducts.length === 1
+      ? `Showing ${visibleProducts.length} product`
+      : `Showing ${visibleProducts.length} products`;
 
   return (
     <>
@@ -39,7 +39,7 @@ export default function Dashboard({
         <ProductsSummary productsSummary={productsSummary} />
         <p className="show-products-total">{numProductsDisplayCopy}</p>
         <ProductGrid
-          products={products}
+          visibleProducts={visibleProducts}
           favouriteIds={favouriteIds}
           toggleFavourite={toggleFavourite}
         />
