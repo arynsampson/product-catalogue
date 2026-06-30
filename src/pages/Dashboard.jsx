@@ -26,10 +26,12 @@ export default function Dashboard({
     />
   ));
 
-  const numProductsDisplayCopy =
+  let numProductsDisplayCopy =
     visibleProducts.length === 1
-      ? `Showing ${visibleProducts.length} product`
-      : `Showing ${visibleProducts.length} products`;
+      ? `Showing ${visibleProducts.length} product. `
+      : `Showing ${visibleProducts.length} products. `;
+
+  if (showFavorites) numProductsDisplayCopy += 'You are viewing your favourited products.';
 
   return (
     <>
