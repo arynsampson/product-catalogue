@@ -67,9 +67,14 @@ header {
       font-size: 14px;
     }
 
+    button {
+      padding: 5px 15px;
+      border: 1px solid white;
+    }
+
     button:hover {
       cursor: pointer;
-      color: #64748b;
+      color: #2563eb;
     }
 
     span {
