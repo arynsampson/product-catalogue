@@ -1,5 +1,5 @@
 import Header from './components/Header';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './components/Dashboard';
 import { useState, useEffect } from 'react';
 
 export default function App() {
