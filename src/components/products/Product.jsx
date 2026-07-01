@@ -17,7 +17,7 @@ export default function Product({ product, setShowProduct }) {
                 <span className="product-reviews-amount">({product.reviews.length} reviews)</span>
               </p>
               <p className="product-price">
-                R{product.price}{' '}
+                R{product.price}
                 <span className="stock-indicator">{product.availabilityStatus}</span>
               </p>
               <p className="product-description">{product.description}</p>
@@ -45,8 +45,6 @@ export default function Product({ product, setShowProduct }) {
                       {tag}
                     </span>
                   ))}
-
-                  {/* <span className="info-detail-tag">Mascara</span> */}
                 </td>
               </tr>
               <tr>
