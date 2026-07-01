@@ -83,7 +83,6 @@ export default function Product({ product, setShowProduct }) {
               </tr>
             </table>
           </div>
-          {/* <div className="product-item-reviews"></div> */}
         </div>
       </div>
     </>
