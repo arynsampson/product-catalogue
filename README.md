@@ -39,9 +39,7 @@ A modern product catalog application built with React that demonstrates core Rea
 * Loading and error handling
 * Responsive layouts with Tailwind CSS
 
-## Key Architectural Decisions
-
-During development, I focused on applying React best practices rather than simply making the application work.
+## Architectural Decisions
 
 Some of the decisions included:
 
