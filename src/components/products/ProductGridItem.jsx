@@ -25,7 +25,10 @@ export default function ProductGridItem({ product, isFavourite, toggleFavourite 
           <img src={product.thumbnail} alt={product.title} className="product-img" />
           <Heart
             className="favorite-icon"
-            onClick={() => toggleFavourite(product)}
+            onClick={(e) => {
+              e.stopPropagation();
+              toggleFavourite(product);
+            }}
             color={isFavourite ? '#ef4444' : '#64748b'}
             fill={isFavourite ? '#ef4444' : 'white'}
           />
