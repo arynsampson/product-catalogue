@@ -38,10 +38,10 @@ export default function ProductGridItem({ product, isFavourite, toggleFavourite 
           <p className="product-title">{product.title}</p>
           <div className="product-rating">
             <div className="stars">
-              {Array.from({ length: fullStars }, () => (
-                <Star fill="yellow" strokeWidth={0} size="16px" />
+              {Array.from({ length: fullStars }, (_, index) => (
+                <Star key={index} fill="yellow" strokeWidth={0} size="16px" />
               ))}
-              {halfStar ? <StarHalf fill="yellow" strokeWidth={0} size="16px" /> : ''}
+              {halfStar && <StarHalf fill="yellow" strokeWidth={0} size="16px" />}
             </div>
             <span className="number-of-reviews">({product.reviews.length})</span>
           </div>
