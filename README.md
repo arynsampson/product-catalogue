@@ -2,6 +2,8 @@
 
 A modern product catalog application built with React that demonstrates core React concepts including state management, component architecture, derived state, and API integration. The main goal for this application was to learn apply basic React concepts.
 
+Live demo: https://product-catalogue-lilac.vercel.app
+
 ## Features
 
 * Browse products from the DummyJSON API
