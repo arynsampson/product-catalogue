@@ -25,7 +25,11 @@ Live demo: https://product-catalogue-lilac.vercel.app
 * Tailwind CSS
 * JavaScript (ES6+)
 * DummyJSON API
+
+## Testing & Tooling
+
 * Playwright end-to-end testing
+* GitHub Actions — automated test execution / CI
 
 ## Concepts Demonstrated
 
