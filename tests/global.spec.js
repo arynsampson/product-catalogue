@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
   // Go to the starting url before each test.
-  await page.goto('http://localhost:5173');
+  await page.goto('/');
 });
 
 test('all products are visible', async ({ page }) => {
