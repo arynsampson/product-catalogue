@@ -9,7 +9,7 @@ export default function Header({ favouritesLength, showFavorites, setShowFavorit
           <h1>Product Catalogue</h1>
         </div>
         <div>
-          <button className={showFavorites ? 'active' : ''} onClick={() => setShowFavorites()}>
+          <button className={showFavorites ? 'active' : 'btn'} onClick={() => setShowFavorites()}>
             Favourites
           </button>
           <span>{favouritesLength}</span>
