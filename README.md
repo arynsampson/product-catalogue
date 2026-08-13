@@ -92,7 +92,7 @@ npm run dev
 
 ## Testing
 
-End-to-end testing is implemented using Playwright.
+Playwright end-to-end tests are automatically run through GitHub Actions on pushes and pull requests.
 
 The E2E test suite covers key user flows, including:
 
@@ -112,9 +112,7 @@ npx playwright install
 
 Run the E2E tests:
 
-cd tests
-
-npx playwright test
+npm run test
 
 ## API
 
