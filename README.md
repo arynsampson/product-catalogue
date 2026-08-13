@@ -25,6 +25,7 @@ Live demo: https://product-catalogue-lilac.vercel.app
 * Tailwind CSS
 * JavaScript (ES6+)
 * DummyJSON API
+* Playwright end-to-end testing
 
 ## Concepts Demonstrated
 
@@ -88,6 +89,32 @@ Potential improvements include:
 npm install
 npm run dev
 ```
+
+## Testing
+
+End-to-end testing is implemented using Playwright.
+
+The E2E test suite covers key user flows, including:
+
+- Check if products are visible are being fetched
+- Search returns correct results
+- Selecting a category filters the correct products
+- Products can be favourited
+- Favourites button displays favourites view
+- Favourited products appear in favourites view
+- Clicking a product opens the product details view
+
+### Running the tests
+
+Install Playwright browsers:
+
+npx playwright install
+
+Run the E2E tests:
+
+cd tests
+
+npx playwright test
 
 ## API
 
